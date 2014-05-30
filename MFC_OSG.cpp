@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "MFC_OSG.h"
 #include "TravelManipulator.h"
-
+//test02
 
 cOSG::cOSG(HWND hWnd) :
    m_hWnd(hWnd) 
