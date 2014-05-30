@@ -1,8 +1,7 @@
-////////test
 #include "stdafx.h"
 #include "TravelManipulator.h"
 
-// ¹¹Ôìº¯Êý
+// ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 TravelManipulator::TravelManipulator():m_fMoveSpeed(1.0f),
 	m_bLeftButtonDown(false),
 	m_fpushX(0),
@@ -18,7 +17,7 @@ TravelManipulator::~TravelManipulator(void)
 {
 }
 
-// °ÑÂþÓÎÆ÷Ìí¼Óµ½³¡¾°ÖÐ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 TravelManipulator *TravelManipulator::TravelToScence(osg::ref_ptr<osgViewer::Viewer> viewer)
 {
 	TravelManipulator* camera = new TravelManipulator;
@@ -30,19 +29,19 @@ TravelManipulator *TravelManipulator::TravelToScence(osg::ref_ptr<osgViewer::Vie
 	return camera;
 }
 
-// ÉèÖÃ¾ØÕó
+// ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½ï¿½
 void TravelManipulator::setByMatrix(const osg::Matrix &matrix)
 {
 
 }
 
-// ÉèÖÃÄæ¾ØÕó
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void TravelManipulator::setByInverseMatrix(const osg::Matrix &matrix)
 {
 
 }
 
-// µÃµ½¾ØÕó
+// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
 osg::Matrixd TravelManipulator::getMatrix(void)const
 {
 	osg::Matrixd mat;
@@ -55,7 +54,7 @@ osg::Matrixd TravelManipulator::getMatrix(void)const
 
 }
 
-// µÃµ½Äæ¾ØÕó
+// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 osg::Matrixd TravelManipulator::getInverseMatrix(void) const
 {
 	osg::Matrixd mat;
@@ -67,10 +66,10 @@ osg::Matrixd TravelManipulator::getInverseMatrix(void) const
 	return osg::Matrixd::inverse(mat * osg::Matrixd::translate(m_vPosition));
 }
 
-// ÊÂ¼þ´¦Àíº¯Êý
+// ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapter &us)
 {
-	// »ñÈ¡Êó±êÎ»ÖÃ
+	// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	float mouseX = ea.getX();
 	float mouseY = ea.getY();
 
@@ -78,7 +77,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 	{
 	case(osgGA::GUIEventAdapter::KEYDOWN):
 		{
-			// ¿Õ¸ñ¼ü
+			// ï¿½Õ¸ï¿½ï¿½ï¿½
 			if(ea.getKey() == 0x20)
 			{
 				us.requestRedraw();
@@ -88,7 +87,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 
 			}
 
-			// ÉÏÒÆ¼ü
+			// ï¿½ï¿½ï¿½Æ¼ï¿½
 			if (ea.getKey() == 0xFF50)
 			{
 				ChangePosition(osg::Vec3(0, 0, m_fMoveSpeed));
@@ -96,7 +95,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 				return true;
 			}
 
-			// ÏÂÒÆ¼ü
+			// ï¿½ï¿½ï¿½Æ¼ï¿½
 			if (ea.getKey() == 0xFF57)
 			{
 				ChangePosition(osg::Vec3(0, 0, -m_fMoveSpeed));
@@ -104,7 +103,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 				return true;
 			}
 
-			// ¼ÓËÙ
+			// ï¿½ï¿½ï¿½ï¿½
 			if (ea.getKey() == 0x2B)
 			{
 				m_fMoveSpeed += 1.0f;
@@ -112,7 +111,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 				return true;
 			}
 
-			// ¼õÉÙËÙ¶È
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
 			if (ea.getKey() == 0x2D)
 			{
 				m_fMoveSpeed -= 0.1f;
@@ -125,7 +124,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 				return true;
 			}
 
-			// Ç°½ø
+			// Ç°ï¿½ï¿½
 			if (ea.getKey() == 0xFF52 || ea.getKey() == 0x57 || ea.getKey() == 0x77)
 			{
 				ChangePosition(osg::Vec3(0, m_fMoveSpeed * sinf(osg::PI_2 + m_vRotation._v[2]), 0));
@@ -134,7 +133,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 				return true;
 			}
 
-			// ºóÍË
+			// ï¿½ï¿½ï¿½ï¿½
 			if (ea.getKey() == 0xFF54 || ea.getKey() == 0x53 || ea.getKey() == 0x73)
 			{
 				ChangePosition(osg::Vec3(0, -m_fMoveSpeed * sinf(osg::PI_2 + m_vRotation._v[2]), 0));
@@ -143,7 +142,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 				return true;
 			}
 
-			// Ïò×ó
+			// ï¿½ï¿½ï¿½ï¿½
 			if (ea.getKey() == 0x41 || ea.getKey() == 0x61)
 			{
 				ChangePosition(osg::Vec3(0, m_fMoveSpeed * cosf(osg::PI_2 + m_vRotation._v[2]),0));
@@ -152,7 +151,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 				return true;
 			}
 
-			// ÏòÓÒ
+			// ï¿½ï¿½ï¿½ï¿½
 			if (ea.getKey() == 0x44 || ea.getKey() == 0x64)
 			{
 				ChangePosition(osg::Vec3(0, -m_fMoveSpeed * cosf(osg::PI_2 + m_vRotation._v[2]),0));
@@ -161,19 +160,19 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 				return true;
 			}
 
-			// ÏòÓÒ×ª
+			// ï¿½ï¿½ï¿½ï¿½×ª
 			if (ea.getKey() == 0xFF53)
 			{
 				m_vRotation._v[2] -= osg::DegreesToRadians(m_fAngle);
 			}
 
-			// Ïò×ó×ª
+			// ï¿½ï¿½ï¿½ï¿½×ª
 			if (ea.getKey() == 0xFF51)
 			{
 				m_vRotation._v[2] += osg::DegreesToRadians(m_fAngle);
 			}
 
-			// ¸Ä±äÆÁÄ»½Ç¶ÈF¼ü
+			// ï¿½Ä±ï¿½ï¿½ï¿½Ä»ï¿½Ç¶ï¿½Fï¿½ï¿½
 			if (ea.getKey() == 0x46 || ea.getKey() == 0x66)
 			{
 				m_fAngle -= 0.2;
@@ -181,7 +180,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 				return true;
 			}
 
-			//G¼ü
+			//Gï¿½ï¿½
 			if (ea.getKey() == 0x47 || ea.getKey() == 0x66)
 			{
 				m_fAngle += 0.2;
@@ -204,7 +203,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 
 		return true;
 
-		// ÍÏ¶¯
+		// ï¿½Ï¶ï¿½
 	case(osgGA::GUIEventAdapter::DRAG):
 
 		if (m_bLeftButtonDown)
@@ -225,7 +224,7 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 
 		return false;
 
-		// Êó±êÊÍ·Å
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½
 	case(osgGA::GUIEventAdapter::RELEASE):
 
 		if (ea.getButton() == 1)
@@ -242,18 +241,18 @@ bool TravelManipulator::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActio
 
 }
 
-// Î»ÖÃ±ä»»º¯Êý
+// Î»ï¿½Ã±ä»»ï¿½ï¿½ï¿½ï¿½
 void TravelManipulator::ChangePosition(osg::Vec3 &delta)
 {
-	// Åö×²¼ì²â
+	// ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½
 	if (m_bPeng)
 	{
-		// µÃµ½ÐÂµÄÎ»ÖÃ
+		// ï¿½Ãµï¿½ï¿½Âµï¿½Î»ï¿½ï¿½
 		osg::Vec3 newPos1 = m_vPosition + delta;
 
 		osgUtil::IntersectVisitor ivXY;
 
-		// ¸ù¾ÝÐÂµÄÎ»ÖÃµÃµ½Á½ÌõÏß¶Î¼ì²â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½Î»ï¿½ÃµÃµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¶Î¼ï¿½ï¿½ï¿½
 		osg::ref_ptr<osg::LineSegment>lineXY = new osg::LineSegment(newPos1, m_vPosition);
 
 		osg::ref_ptr<osg::LineSegment>lineZ = new osg::LineSegment(newPos1 + osg::Vec3(0.0f, 0.0f, 10.0f), newPos1 - osg::Vec3(0.0f, 0.0f, -10.0f));
@@ -261,10 +260,10 @@ void TravelManipulator::ChangePosition(osg::Vec3 &delta)
 		ivXY.addLineSegment(lineZ.get());
 		ivXY.addLineSegment(lineXY.get());
 
-		// ½á¹¹½»¼¯¼ì²â
+		// ï¿½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		m_pHostViewer->getSceneData()->accept(ivXY);
 
-		// Èç¹ûÃ»ÓÐÅö×²
+		// ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½×²
 		if (!ivXY.hits())
 		{
 			m_vPosition += delta;
@@ -277,25 +276,25 @@ void TravelManipulator::ChangePosition(osg::Vec3 &delta)
 	}
 }
 
-// ÉèÖÃËÙ¶È
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
 void TravelManipulator::setSpeed(float &sp)
 {
 	m_fMoveSpeed = sp;
 }
 
-// »ñµÃµ±Ç°ËÙ¶È
+// ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½Ù¶ï¿½
 float TravelManipulator::getSpeed()
 {
 	return m_fMoveSpeed;
 }
 
-// ÉèÖÃÆðÊ¼µÄÎ»ÖÃ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Î»ï¿½ï¿½
 void TravelManipulator::SetPosition(osg::Vec3 &position)
 {
 	m_vPosition = position;
 }
 
-// µÃµ½µ±Ç°ËùÔÚÎ»ÖÃ
+// ï¿½Ãµï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 osg::Vec3 TravelManipulator::GetPosition()
 {
 	return m_vPosition;
